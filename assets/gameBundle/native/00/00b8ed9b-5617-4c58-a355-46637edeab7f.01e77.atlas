@@ -1,0 +1,13 @@
+
+loading.png
+size: 55,55
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+light_up_ban
+  rotate: false
+  xy: 2, 2
+  size: 51, 51
+  orig: 51, 51
+  offset: 0, 0
+  index: -1

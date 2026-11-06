@@ -1,0 +1,41 @@
+
+nengliang.png
+size: 843,655
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+dd_nengliang
+  rotate: true
+  xy: 2, 2
+  size: 265, 264
+  orig: 268, 266
+  offset: 1, 1
+  index: -1
+light_quan
+  rotate: false
+  xy: 372, 330
+  size: 323, 323
+  orig: 329, 329
+  offset: 3, 3
+  index: -1
+light_xiguang
+  rotate: true
+  xy: 2, 269
+  size: 384, 368
+  orig: 405, 398
+  offset: 15, 12
+  index: -1
+light_xuancai
+  rotate: false
+  xy: 526, 13
+  size: 315, 315
+  orig: 315, 315
+  offset: 0, 0
+  index: -1
+light_xuanzhuan
+  rotate: true
+  xy: 268, 8
+  size: 259, 256
+  orig: 267, 267
+  offset: 5, 5
+  index: -1

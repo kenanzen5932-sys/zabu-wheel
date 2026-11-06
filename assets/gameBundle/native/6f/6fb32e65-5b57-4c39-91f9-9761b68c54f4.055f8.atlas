@@ -1,0 +1,69 @@
+
+light_dajiang.png
+size: 1266,668
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bling
+  rotate: true
+  xy: 298, 274
+  size: 22, 21
+  orig: 25, 25
+  offset: 1, 2
+  index: -1
+kk
+  rotate: false
+  xy: 687, 12
+  size: 286, 286
+  orig: 290, 290
+  offset: 2, 2
+  index: -1
+kk2
+  rotate: false
+  xy: 975, 25
+  size: 273, 273
+  orig: 275, 275
+  offset: 1, 1
+  index: -1
+light_begin
+  rotate: true
+  xy: 388, 3
+  size: 295, 297
+  orig: 302, 304
+  offset: 6, 6
+  index: -1
+light_dk
+  rotate: false
+  xy: 388, 300
+  size: 366, 366
+  orig: 375, 396
+  offset: 4, 15
+  index: -1
+light_dk2
+  rotate: false
+  xy: 756, 300
+  size: 366, 366
+  orig: 375, 396
+  offset: 4, 15
+  index: -1
+light_xiguang
+  rotate: false
+  xy: 2, 298
+  size: 384, 368
+  orig: 405, 398
+  offset: 15, 12
+  index: -1
+light_yuan
+  rotate: false
+  xy: 1124, 526
+  size: 140, 140
+  orig: 150, 150
+  offset: 5, 5
+  index: -1
+mask
+  rotate: false
+  xy: 2, 2
+  size: 294, 294
+  orig: 294, 294
+  offset: 0, 0
+  index: -1

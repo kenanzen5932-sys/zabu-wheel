@@ -1,0 +1,34 @@
+
+blings_tanchuang.png
+size: 300,812
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bling
+  rotate: false
+  xy: 2, 765
+  size: 45, 45
+  orig: 53, 53
+  offset: 4, 4
+  index: -1
+hight_light
+  rotate: true
+  xy: 2, 292
+  size: 272, 273
+  orig: 300, 299
+  offset: 14, 13
+  index: -1
+light_begin
+  rotate: true
+  xy: 2, 2
+  size: 288, 294
+  orig: 302, 304
+  offset: 8, 8
+  index: -1
+light_end
+  rotate: true
+  xy: 49, 566
+  size: 244, 249
+  orig: 268, 257
+  offset: 0, 7
+  index: -1
