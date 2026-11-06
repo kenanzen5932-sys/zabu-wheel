@@ -271,7 +271,7 @@
   // ── Oyun yamaları (paket dosyalarına dokunmadan) ──────────────────────
   // Uzak resim yüklendikten sonra özel materyal (yuvarlak/gri) yeniden atanır;
   // aksi halde bazı cihazlarda ödül/avatar resmi boş çiziliyordu (Greedy'de görüldü).
-  var patched = { sprite: false };
+  var patched = { sprite: false, rank: false };
   function tryPatch() {
     var cc = window.cc;
     if (!cc || !cc.js || typeof cc.js.getClassByName !== 'function') return false;
@@ -291,7 +291,28 @@
         patched.sprite = true;
       }
     }
-    return patched.sprite;
+    // Kupa (sıralama) butonu: bizde sıralama yok → gizle
+    if (!patched.rank) {
+      var RB = cc.js.getClassByName('GameRankBtn');
+      if (RB && RB.prototype) {
+        var hide = function () { try { this.node.active = false; } catch (e) { /* */ } };
+        RB.prototype.onLoad = hide;
+        RB.prototype.onEnable = hide;
+        RB.prototype.playRankSpine = function () {};
+      }
+      // Sahnede zaten yüklenmiş olanı da gizle (bulunana kadar dener)
+      try {
+        var scene = cc.director && cc.director.getScene && cc.director.getScene();
+        var walk = function (n) {
+          (n.components || []).forEach(function (c) {
+            if (RB && c instanceof RB) { c.node.active = false; patched.rank = true; }
+          });
+          (n.children || []).forEach(walk);
+        };
+        if (RB && scene) walk(scene);
+      } catch (e) { /* */ }
+    }
+    return patched.sprite && patched.rank;
   }
 
   // Ekran uyumu: alan tasarım oranından (750×1334) kısaysa SHOW_ALL, değilse oyunun kendi FIXED_WIDTH ayarı (yanlar kesilmez)
