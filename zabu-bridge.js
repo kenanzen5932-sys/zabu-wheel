@@ -295,10 +295,23 @@
     if (!patched.rank) {
       var RB = cc.js.getClassByName('GameRankBtn');
       if (RB && RB.prototype) {
-        var hide = function () { try { this.node.active = false; } catch (e) { /* */ } };
-        RB.prototype.onLoad = hide;
-        RB.prototype.onEnable = hide;
-        RB.prototype.playRankSpine = function () {};
+        // Orijinal onLoad çalışsın (alanlar dolsun) → sonra gizle. onLoad'ı tamamen
+        // ezmek alanları null bırakıyordu → oyun her karede hata verip takılıyordu.
+        if (!RB.prototype.__zabuWrapped) {
+          RB.prototype.__zabuWrapped = true;
+          var oLoad = RB.prototype.onLoad;
+          RB.prototype.onLoad = function () {
+            try { if (oLoad) oLoad.apply(this, arguments); } catch (e) { /* */ }
+            try { this.node.active = false; } catch (e) { /* */ }
+          };
+          Object.getOwnPropertyNames(RB.prototype).forEach(function (k) {
+            if (k === 'onLoad' || k === 'constructor' || k === '__zabuWrapped') return;
+            var d = Object.getOwnPropertyDescriptor(RB.prototype, k);
+            var f = d && d.value;
+            if (typeof f !== 'function') return;
+            RB.prototype[k] = function () { try { return f.apply(this, arguments); } catch (e) { return undefined; } };
+          });
+        }
       }
       // Sahnede zaten yüklenmiş olanı da gizle (bulunana kadar dener)
       try {
